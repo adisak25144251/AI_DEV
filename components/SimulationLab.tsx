@@ -61,7 +61,7 @@ export const SimulationLab: React.FC = () => {
                <div className="p-4 space-y-2 text-slate-300 flex-1 overflow-y-auto">
                  <div>$ docker build -t rag-api .</div>
                  <div className="text-slate-500">[+] Building 2.4s (12/12) FINISHED</div>
-                 <div className="text-emerald-500"> => writing image sha256:3a9... done</div>
+                 <div className="text-emerald-500">{'>'} ={'>'} writing image sha256:3a9... done</div>
                  <div>$ docker run -p 8000:8000 rag-api</div>
                  <div className="text-blue-400">INFO: Started server process [1]</div>
                  <div className="text-blue-400">INFO: Waiting for application startup.</div>
