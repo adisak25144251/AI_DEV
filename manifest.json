@@ -1,0 +1,21 @@
+{
+  "name": "AI Dev Roadmap 2026",
+  "short_name": "AI Roadmap",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/6108/6108855.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/6108/6108855.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
