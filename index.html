@@ -6,24 +6,57 @@
     <title>AI Dev Roadmap 2026 | เส้นทางสู่นักพัฒนา AI ยุคใหม่</title>
     <meta name="description" content="Roadmap และแหล่งเรียนรู้สำหรับนักพัฒนาที่ต้องการอัปสกิลสู่ AI Engineering" />
     <meta name="keywords" content="AI Developer, Roadmap 2026, LLM, RAG, Python, Next.js" />
-    
+
     <!-- PWA Settings -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="%BASE_URL%manifest.json" />
     <meta name="theme-color" content="#0f172a" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/6108/6108855.png">
-    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/6108/6108855.png" />
+
+    <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fonts: Inconsolata (EN/Code) + Sarabun (TH fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'Sarabun', 'sans-serif'],
-              mono: ['Fira Code', 'monospace'],
+              // ทั้งเว็บจะใช้ Inconsolata เป็นหลัก และให้ Sarabun fallback เวลาเจอภาษาไทย
+              sans: [
+                'Inconsolata',
+                'Sarabun',
+                'ui-monospace',
+                'SFMono-Regular',
+                'Menlo',
+                'Monaco',
+                'Consolas',
+                'Liberation Mono',
+                'Courier New',
+                'monospace',
+              ],
+              // ให้ mono เป็น Inconsolata เหมือนกันเพื่อคุมลุคให้ไปทาง dev/hacker ทั้งเว็บ
+              mono: [
+                'Inconsolata',
+                'Sarabun',
+                'ui-monospace',
+                'SFMono-Regular',
+                'Menlo',
+                'Monaco',
+                'Consolas',
+                'Liberation Mono',
+                'Courier New',
+                'monospace',
+              ],
             },
             colors: {
               brand: {
@@ -39,15 +72,15 @@
                 base: 'var(--color-bg-base)',
                 elev1: 'var(--color-bg-elev1)',
                 elev2: 'var(--color-bg-elev2)',
-              }
+              },
             },
             animation: {
-              'float': 'float 6s ease-in-out infinite',
+              float: 'float 6s ease-in-out infinite',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'shine': 'shine 3s linear infinite',
+              shine: 'shine 3s linear infinite',
               'spin-slow': 'spin 12s linear infinite',
-              'morph': 'morph 8s ease-in-out infinite',
-              'glitch': 'glitch 2s infinite',
+              morph: 'morph 8s ease-in-out infinite',
+              glitch: 'glitch 2s infinite',
             },
             keyframes: {
               float: {
@@ -61,7 +94,7 @@
               morph: {
                 '0%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
                 '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
-                '100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }
+                '100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
               },
               glitch: {
                 '0%': { transform: 'translate(0)' },
@@ -69,16 +102,16 @@
                 '40%': { transform: 'translate(-2px, -2px)' },
                 '60%': { transform: 'translate(2px, 2px)' },
                 '80%': { transform: 'translate(2px, -2px)' },
-                '100%': { transform: 'translate(0)' }
-              }
-            }
-          }
-        }
-      }
+                '100%': { transform: 'translate(0)' },
+              },
+            },
+          },
+        },
+      };
     </script>
+
     <style>
       :root {
-        /* Defaults */
         --color-text-main: #f8fafc;
         --color-text-muted: #94a3b8;
       }
@@ -90,25 +123,25 @@
         --color-bg-base: hsl(222, 30%, 6%);
         --color-bg-elev1: hsl(222, 28%, 9%);
         --color-bg-elev2: hsl(222, 26%, 12%);
-        
-        --color-accent-primary: hsl(188, 100%, 55%);      /* Cyan */
+
+        --color-accent-primary: hsl(188, 100%, 55%);
         --color-accent-primary-dim: hsl(188, 100%, 45%);
         --color-accent-primary-dark: hsl(188, 100%, 35%);
-        --color-accent-secondary: hsl(292, 100%, 62%);    /* Magenta */
+        --color-accent-secondary: hsl(292, 100%, 62%);
         --color-accent-secondary-dim: hsl(292, 100%, 50%);
 
         --glass-bg: hsla(222, 30%, 10%, 0.6);
         --glass-border: hsla(0, 0%, 100%, 0.1);
         --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        
+
         --radius-card: 16px;
         --radius-btn: 12px;
         --motion-lift: -8px;
-        
+
         --hero-glow: radial-gradient(circle at 20% 30%, hsla(188, 100%, 55%, 0.15) 0%, transparent 40%),
-                     radial-gradient(circle at 80% 20%, hsla(292, 100%, 62%, 0.12) 0%, transparent 40%);
-        --bg-pattern: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+          radial-gradient(circle at 80% 20%, hsla(292, 100%, 62%, 0.12) 0%, transparent 40%);
+        --bg-pattern: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         --bg-size: 40px 40px;
       }
 
@@ -116,25 +149,31 @@
          THEME 2: Cyberpunk Colorful Neon 3D
          ========================================= */
       [data-theme="cyberpunk"] {
-        --color-bg-base: hsl(260, 40%, 5%); /* Deep Purple Black */
+        --color-bg-base: hsl(260, 40%, 5%);
         --color-bg-elev1: hsl(260, 35%, 8%);
         --color-bg-elev2: hsl(260, 30%, 11%);
 
-        --color-accent-primary: hsl(320, 100%, 55%);      /* Hot Pink */
+        --color-accent-primary: hsl(320, 100%, 55%);
         --color-accent-primary-dim: hsl(320, 100%, 45%);
         --color-accent-primary-dark: hsl(320, 100%, 35%);
-        --color-accent-secondary: hsl(50, 100%, 50%);     /* Electric Yellow */
+        --color-accent-secondary: hsl(50, 100%, 50%);
         --color-accent-secondary-dim: hsl(50, 100%, 40%);
 
         --glass-bg: hsla(260, 40%, 10%, 0.8);
-        --glass-border: hsla(320, 100%, 55%, 0.3); /* Pink Border */
+        --glass-border: hsla(320, 100%, 55%, 0.3);
         --glass-shadow: 0 0 20px 0 rgba(255, 0, 180, 0.15);
 
-        --radius-card: 0px; /* Sharp Edges */
+        --radius-card: 0px;
         --radius-btn: 2px;
         --motion-lift: -4px;
 
-        --hero-glow: conic-gradient(from 180deg at 50% 50%, hsla(320, 100%, 55%, 0.15), hsla(190, 100%, 50%, 0.15), hsla(50, 100%, 50%, 0.15), hsla(320, 100%, 55%, 0.15));
+        --hero-glow: conic-gradient(
+          from 180deg at 50% 50%,
+          hsla(320, 100%, 55%, 0.15),
+          hsla(190, 100%, 50%, 0.15),
+          hsla(50, 100%, 50%, 0.15),
+          hsla(320, 100%, 55%, 0.15)
+        );
         --bg-pattern: repeating-linear-gradient(45deg, rgba(255, 0, 180, 0.03) 0, rgba(255, 0, 180, 0.03) 1px, transparent 0, transparent 50%);
         --bg-size: 20px 20px;
       }
@@ -147,10 +186,10 @@
         --color-bg-elev1: hsl(230, 25%, 12%);
         --color-bg-elev2: hsl(230, 25%, 15%);
 
-        --color-accent-primary: hsl(186, 100%, 60%);      /* Pastel Aqua */
+        --color-accent-primary: hsl(186, 100%, 60%);
         --color-accent-primary-dim: hsl(186, 80%, 50%);
         --color-accent-primary-dark: hsl(186, 80%, 40%);
-        --color-accent-secondary: hsl(280, 100%, 75%);    /* Soft Lavender */
+        --color-accent-secondary: hsl(280, 100%, 75%);
         --color-accent-secondary-dim: hsl(280, 80%, 65%);
 
         --glass-bg: hsla(230, 25%, 20%, 0.5);
@@ -161,8 +200,8 @@
         --radius-btn: 16px;
         --motion-lift: -6px;
 
-        --hero-glow: radial-gradient(circle at 50% 0%, hsla(186, 100%, 60%, 0.15), transparent 70%), 
-                     radial-gradient(circle at 0% 50%, hsla(280, 100%, 75%, 0.1), transparent 60%);
+        --hero-glow: radial-gradient(circle at 50% 0%, hsla(186, 100%, 60%, 0.15), transparent 70%),
+          radial-gradient(circle at 0% 50%, hsla(280, 100%, 75%, 0.1), transparent 60%);
         --bg-pattern: radial-gradient(circle at center, hsla(255, 255, 255, 0.03) 1px, transparent 1px);
         --bg-size: 40px 40px;
       }
@@ -175,10 +214,10 @@
         --color-bg-elev1: hsl(210, 28%, 8%);
         --color-bg-elev2: hsl(210, 26%, 11%);
 
-        --color-accent-primary: hsl(150, 100%, 50%);      /* Matrix Green */
+        --color-accent-primary: hsl(150, 100%, 50%);
         --color-accent-primary-dim: hsl(150, 90%, 40%);
         --color-accent-primary-dark: hsl(150, 90%, 30%);
-        --color-accent-secondary: hsl(190, 100%, 50%);    /* Cyan */
+        --color-accent-secondary: hsl(190, 100%, 50%);
         --color-accent-secondary-dim: hsl(190, 90%, 40%);
 
         --glass-bg: hsla(210, 30%, 8%, 0.9);
@@ -191,7 +230,7 @@
 
         --hero-glow: linear-gradient(0deg, transparent 0%, hsla(150, 100%, 50%, 0.05) 100%);
         --bg-pattern: linear-gradient(90deg, hsla(150, 100%, 50%, 0.03) 1px, transparent 1px),
-                      linear-gradient(0deg, hsla(150, 100%, 50%, 0.03) 1px, transparent 1px);
+          linear-gradient(0deg, hsla(150, 100%, 50%, 0.03) 1px, transparent 1px);
         --bg-size: 30px 30px;
       }
 
@@ -203,23 +242,23 @@
         --color-bg-elev1: #0a0a0a;
         --color-bg-elev2: #111111;
 
-        --color-accent-primary: #ff0000;                  /* Pure Red */
+        --color-accent-primary: #ff0000;
         --color-accent-primary-dim: #cc0000;
         --color-accent-primary-dark: #990000;
-        --color-accent-secondary: #ffffff;                /* Pure White */
+        --color-accent-secondary: #ffffff;
         --color-accent-secondary-dim: #cccccc;
 
         --glass-bg: rgba(20, 20, 20, 0.8);
         --glass-border: rgba(255, 255, 255, 0.1);
-        --glass-shadow: 0 0 0 1px rgba(50,50,50,1);
+        --glass-shadow: 0 0 0 1px rgba(50, 50, 50, 1);
 
         --radius-card: 0px;
         --radius-btn: 0px;
         --motion-lift: -2px;
 
         --hero-glow: radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 60%);
-        --bg-pattern: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-        --bg-size: 100% 4px; /* Scanline look */
+        --bg-pattern: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        --bg-size: 100% 4px;
       }
 
       /* =========================================
@@ -230,72 +269,69 @@
         --color-bg-elev1: hsl(220, 35%, 12%);
         --color-bg-elev2: hsl(220, 30%, 15%);
 
-        --color-accent-primary: hsl(200, 100%, 60%);      /* Ocean Blue */
+        --color-accent-primary: hsl(200, 100%, 60%);
         --color-accent-primary-dim: hsl(200, 80%, 50%);
         --color-accent-primary-dark: hsl(200, 80%, 40%);
-        --color-accent-secondary: hsl(160, 100%, 60%);    /* Mint */
+        --color-accent-secondary: hsl(160, 100%, 60%);
         --color-accent-secondary-dim: hsl(160, 80%, 50%);
 
         --glass-bg: hsla(220, 40%, 20%, 0.3);
         --glass-border: hsla(200, 100%, 80%, 0.2);
         --glass-shadow: 0 8px 32px 0 rgba(0, 50, 100, 0.2);
 
-        --radius-card: 32px; /* Very round */
+        --radius-card: 32px;
         --radius-btn: 99px;
         --motion-lift: -12px;
 
         --hero-glow: radial-gradient(circle at 30% 70%, hsla(200, 100%, 60%, 0.2), transparent 50%),
-                     radial-gradient(circle at 70% 30%, hsla(160, 100%, 60%, 0.15), transparent 50%);
-        --bg-pattern: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-        --bg-size: 50px 50px; /* Particles */
+          radial-gradient(circle at 70% 30%, hsla(160, 100%, 60%, 0.15), transparent 50%);
+        --bg-pattern: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        --bg-size: 50px 50px;
       }
 
       /* Base Body Styles */
+      html,
       body {
-        font-family: 'Sarabun', sans-serif;
+        /* ✅ Inconsolata เป็นหลัก + Sarabun fallback สำหรับไทย */
+        font-family: 'Inconsolata', 'Sarabun', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        font-weight: 300; /* ✅ default weight = 300 (Light) */
         background-color: var(--color-bg-base);
         color: var(--color-text-main);
         transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s ease;
-        
-        /* Dynamic Background Layering */
-        background-image: 
-          var(--hero-glow),
-          var(--bg-pattern);
-        background-size: 
-          100% 100%, 
-          var(--bg-size);
+
+        background-image: var(--hero-glow), var(--bg-pattern);
+        background-size: 100% 100%, var(--bg-size);
         background-position: center, 0 0;
         background-repeat: no-repeat, repeat;
         background-attachment: fixed;
       }
-      
+
       /* Liquid Theme Specific Background Tweaks */
-      [data-theme="liquid"] body {
-        background-image: 
-          var(--hero-glow),
-          radial-gradient(circle at 10% 10%, rgba(255,255,255,0.03) 1px, transparent 2px),
-          radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02) 1px, transparent 2px),
-          var(--bg-pattern); /* "Stars" */
-          background-size: 100% 100%, 200px 200px, 300px 300px, 60px 60px;
+      [data-theme='liquid'] body {
+        background-image: var(--hero-glow),
+          radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.03) 1px, transparent 2px),
+          radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.02) 1px, transparent 2px),
+          var(--bg-pattern);
+        background-size: 100% 100%, 200px 200px, 300px 300px, 60px 60px;
       }
 
       /* Scanline Effect (Overlay) */
       .scanline-active::after {
-        content: " ";
+        content: ' ';
         display: block;
         position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
-        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+          linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
         z-index: 9999;
         background-size: 100% 2px, 3px 100%;
         pointer-events: none;
         opacity: 0.6;
       }
 
-      /* Utilities using CSS Variables */
       .glass-panel {
         background: var(--glass-bg);
         backdrop-filter: blur(12px);
@@ -305,26 +341,25 @@
         border-radius: var(--radius-card);
       }
 
-      /* Theme Transition Wrapper */
       * {
         transition-property: background-color, border-color, color, fill, stroke, transform, box-shadow;
         transition-duration: 300ms;
         transition-timing-function: ease-out;
       }
-      
+
       .text-glow {
         text-shadow: 0 0 20px var(--color-accent-primary-dim);
       }
 
-      /* Accessibility Focus Ring */
       :focus-visible {
         outline: 2px solid var(--color-accent-primary);
         outline-offset: 4px;
       }
 
-      /* Reduced Motion */
       @media (prefers-reduced-motion: reduce) {
-        *, ::before, ::after {
+        *,
+        ::before,
+        ::after {
           animation-duration: 0.01ms !important;
           animation-iteration-count: 1 !important;
           transition-duration: 0.01ms !important;
@@ -332,26 +367,24 @@
         }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
-  }
-}
-</script>
 
-<link rel="stylesheet" href="/index.css">
-</head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+          "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="%BASE_URL%index.css" />
+  </head>
+
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
-</head>
-  <body>
-    <div id="root"></div>
+    <script type="module" src="%BASE_URL%index.tsx"></script>
   </body>
 </html>
